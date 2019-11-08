@@ -23,8 +23,8 @@ class SignUp extends React.Component {
 
     const { displayName, email, password, confirmPassword } = this.state;
 
-    if (password != confirmPassword) {
-      alert("passwords don't match");
+    if (password !== confirmPassword) {
+      alert("passwords don't match"); ///
       return;
     }
 
@@ -35,6 +35,7 @@ class SignUp extends React.Component {
         password
       );
       await createUserProfileDocument(user, { displayName });
+      // Clear out the form
       this.setState({
         displayName: "",
         email: "",
@@ -42,7 +43,7 @@ class SignUp extends React.Component {
         confirmPassword: ""
       });
     } catch (error) {
-      console.error(error);
+      console.error(error); ///
     }
   };
   handleChange = event => {
