@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import "./header.styles.scss";
 
-const Header = ({ curUser }) => (
+const Header = ({ currentUser }) => (
   <div className="header">
     <Link to="/" className="logo-container">
       <Logo className="logo"></Logo>
@@ -19,7 +19,7 @@ const Header = ({ curUser }) => (
       <Link to="/shop" className="option">
         CONTACT
       </Link>
-      {curUser ? (
+      {currentUser ? (
         <div className="option" onClick={() => auth.signOut()}>
           SIGN OUT
         </div>
@@ -33,8 +33,8 @@ const Header = ({ curUser }) => (
 );
 
 // state is root reducer
-const mapStateToProps = (state) => ({
-  curUser: state.user.curUser
-})
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
 
 export default connect(mapStateToProps)(Header);
